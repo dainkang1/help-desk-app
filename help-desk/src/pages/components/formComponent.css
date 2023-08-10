@@ -1,0 +1,55 @@
+.formContainer {
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .inputGroup {
+    margin-bottom: 20px;
+  }
+  
+  .inputLabel {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .inputField,
+  .textareaField {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.2s;
+  }
+  
+  .inputField:focus,
+  .textareaField:focus {
+    border-color: #007BFF;
+    outline: none;
+  }
+  
+  .textareaField {
+    resize: vertical;
+    min-height: 100px;
+  }
+  
+  .submitBtn {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+  }
+  
+  .submitBtn:hover {
+    background-color: #0056b3;
+  }
