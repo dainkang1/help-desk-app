@@ -2,6 +2,7 @@
 
 import styles from './page.module.css'
 import FormComponent from '../pages/components/FormComponent'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -11,6 +12,13 @@ export default function Home() {
           <h1>Help Desk - Create Ticket</h1>
           <FormComponent />
         </div>
+      </div>
+      <div className={styles.adminLink}>
+        <h1>
+          <Link href="/admin/admin">
+            Go to the Admin Page
+          </Link>
+        </h1>
       </div>
     </main>
   )

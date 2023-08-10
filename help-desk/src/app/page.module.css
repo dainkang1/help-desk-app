@@ -4,5 +4,11 @@
   justify-content: space-between;
   align-items: center;
   padding: 6rem;
-  min-height: 100vh;
+  min-height: 80vh;
+}
+
+.adminLink {
+  border: 1px solid #ccc;
+  padding: 30px;
+  color: pink;
 }
