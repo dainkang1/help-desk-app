@@ -1,5 +1,3 @@
-# help-desk-app
-Help Desk Application
 
 # Help Desk App
 
