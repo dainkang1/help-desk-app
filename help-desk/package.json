@@ -2,21 +2,31 @@
   "name": "help-desk",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "server": "nodemon --exec \"node --loader ts-node/esm/transpile-only\" ./backend/server.ts"
   },
   "dependencies": {
     "@types/node": "20.4.9",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "cors": "^2.8.5",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.13",
+    "express": "^4.18.2",
     "next": "13.4.13",
+    "nodemon": "^3.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "ts-node": "^10.9.1"
   }
 }
