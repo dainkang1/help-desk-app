@@ -60,7 +60,6 @@ export default function FormComponent () {
             email: emailError,
             description: descriptionError
           });
-          alert('errorrrr')
           return;
         }
 
@@ -88,7 +87,7 @@ export default function FormComponent () {
       
           const responseData = await response.json();
           console.log(responseData, 'responseData');
-          alert(responseData)
+          alert('Request has been submitted!')
         } catch (error) {
           alert(error)
           console.error('There was a problem with the fetch operation:');
