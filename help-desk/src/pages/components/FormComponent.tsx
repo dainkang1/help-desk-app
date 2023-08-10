@@ -16,7 +16,7 @@ function generateSemiUniqueId() {
 }
 
 
-const FormComponent = () => {
+export default function FormComponent () {
     const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [formData, setFormData] = useState<FormState>({
         name: '',
@@ -139,5 +139,3 @@ const FormComponent = () => {
         </form>
       );
 }
-
-export default FormComponent;
