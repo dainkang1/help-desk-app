@@ -4,7 +4,6 @@ import cors from 'cors';
 const app = express();
 const PORT = 3001;
 
-// Define the shape of a ticket for TypeScript
 interface Ticket {
   name: string;
   email: string;
