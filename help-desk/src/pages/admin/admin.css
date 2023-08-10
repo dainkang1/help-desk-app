@@ -1,0 +1,124 @@
+html {
+    background-color: black;
+}
+.adminDashboard {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: grey;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  
+  .dashboardTitle {
+    color: #2c3e50;
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+  }
+  
+  .backLink {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .ticketsList {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .ticketHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .ticketItem {
+    position: relative;
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ticketName {
+    color: #34495e;
+    margin-bottom: 5px;
+  }
+  
+  .ticketEmail, .ticketDescription, .ticketId {
+    color: #7f8c8d;
+    margin-bottom: 5px;
+  }
+
+  .ticketDescription {
+    background-color: #f2f2f2;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    border-left: 5px solid #3498db;
+  }
+  
+  
+  .statusSelector, .deleteBtn, .responseSection {
+    margin-top: 10px;
+  }
+  
+  .statusSelector {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .statusLabel {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .ticketItem select {
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .deleteBtn button {
+    background-color: red;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+  }
+  
+  .deleteBtn button:hover {
+    background-color: #2980b9;
+  }
+  
+  .responseTextarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .respondBtn {
+    background-color: #3498db;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .respondBtn:hover {
+    background-color: #2980b9;
+  }
+  

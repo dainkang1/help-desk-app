@@ -37,7 +37,7 @@ export default function FormComponent () {
       };
       
       const validateDescription = (description: string) => {
-        if (description.length <= 5) return "Description must be more than 5 characters.";
+        if (description.length < 5) return "Description must be more than 5 characters.";
         return "";
       };
       
@@ -120,7 +120,7 @@ export default function FormComponent () {
                 className="inputField"
               />
             </label>
-            {errors.name && <div className="error">{errors.email}</div>}
+            {errors.email && <div className="error">{errors.email}</div>}
           </div>
           <div className="inputGroup">
             <label className="inputLabel">
@@ -132,7 +132,7 @@ export default function FormComponent () {
                 className="textareaField"
               ></textarea>
             </label>
-            {errors.name && <div className="error">{errors.description}</div>}
+            {errors.description && <div className="error">{errors.description}</div>}
           </div>
           <button type="submit" className="submitBtn">Submit</button>
         </form>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React, { ChangeEvent, useState, useEffect } from 'react';
-
+import './admin.css';
 type Ticket = {
   id: string;
   name: string;
@@ -12,7 +12,6 @@ type Ticket = {
 export default function Admin () {
   const [tickets, setTickets] = useState<Ticket[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [response, setResponse] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -47,7 +46,6 @@ export default function Admin () {
       // Update the tickets state to remove the deleted ticket
       setTickets(prevTickets => prevTickets.filter(ticket => ticket.id !== ticketId));
     } catch (error) {
-      console.error('There was a problem with the fetch operation:', error);
     }
   };
 
@@ -107,35 +105,38 @@ export default function Admin () {
   if (error) return <p>{error}</p>;
 
   return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      <h2>
+    <div className="adminDashboard">
+      <h1 className="dashboardTitle">Admin Dashboard</h1>
+      <h2 className="backLink">
         <Link href="/">Back to home</Link>
       </h2>
-      <ul>
+      <ul className="ticketsList">
       {tickets.map(ticket => (
-        <li key={ticket.id}>
-          <div><strong>{ticket.name}</strong></div>
-          <div>{ticket.email}</div>
-          <div>{ticket.description}</div>
-          <div> TICKET ID {ticket.id} </div>
-          <div>
-            Status: 
+        <li key={ticket.id} className="ticketItem">
+          <div className="ticketHeader">
+            <div className="ticketName"><strong>Name: {ticket.name}</strong></div>
+            <div className="deleteBtn">
+              <button onClick={() => handleDelete(ticket.id)}>Delete</button>
+            </div>
+          </div>
+          <div className="ticketEmail">Email: {ticket.email}</div>
+          <div className="ticketDescription"> Description: {ticket.description}</div>
+          <div className="ticketId">Ticket ID:  {ticket.id}</div>
+          <div className="statusSelector">
+            <span className="statusLabel">Status:</span>
             <select value={ticket.status} onChange={(e) => handleStatusChange(e, ticket.id)}>
               <option value="New">New</option>
               <option value="In Progress">In Progress</option>
               <option value="Resolved">Resolved</option>
             </select>
           </div>
-          <div>
-            <button onClick={() => handleDelete(ticket.id)}>Delete</button>
-          </div>
-          <div>
+          <div className="responseSection">
             <textarea 
+                className="responseTextarea"
                 placeholder="Enter your response here..."
             ></textarea>
-            <button onClick={() => handleSubmit(ticket.id)}>Respond</button>
-        </div>
+            <button className="respondBtn" onClick={() => handleSubmit(ticket.id)}>Respond</button>
+          </div>
         </li>
       ))}
       </ul>
