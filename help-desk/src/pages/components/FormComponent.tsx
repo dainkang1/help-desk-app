@@ -15,8 +15,9 @@ function generateSemiUniqueId() {
   return timestampPart + randomPart;
 }
 
-const FormComponent = () => {
 
+const FormComponent = () => {
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
     const [formData, setFormData] = useState<FormState>({
         name: '',
         email: '',
@@ -24,7 +25,22 @@ const FormComponent = () => {
         status: 'New',
         id: generateSemiUniqueId()
       });
-    
+
+      const validateName = (name: string) => {
+        if (name.length < 2) return "Name must be at least 2 letters long.";
+        return "";
+      };
+      
+      const validateEmail = (email: string) => {
+        if (!email.includes("@")) return "Email must contain an @.";
+        return "";
+      };
+      
+      const validateDescription = (description: string) => {
+        if (description.length <= 5) return "Description must be more than 5 characters.";
+        return "";
+      };
+      
       const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -34,6 +50,20 @@ const FormComponent = () => {
 
         e.preventDefault();
       
+        const nameError = validateName(formData.name);
+        const emailError = validateEmail(formData.email);
+        const descriptionError = validateDescription(formData.description);
+      
+        if (nameError || emailError || descriptionError) {
+          setErrors({
+            name: nameError,
+            email: emailError,
+            description: descriptionError
+          });
+          alert('errorrrr')
+          return;
+        }
+
         try {
           const response = await fetch('http://localhost:3001/api/tickets', {
             method: 'POST',
@@ -78,6 +108,7 @@ const FormComponent = () => {
                 className="inputField"
               />
             </label>
+            {errors.name && <div className="error">{errors.name}</div>}
           </div>
           <div className="inputGroup">
             <label className="inputLabel">
@@ -90,6 +121,7 @@ const FormComponent = () => {
                 className="inputField"
               />
             </label>
+            {errors.name && <div className="error">{errors.email}</div>}
           </div>
           <div className="inputGroup">
             <label className="inputLabel">
@@ -101,6 +133,7 @@ const FormComponent = () => {
                 className="textareaField"
               ></textarea>
             </label>
+            {errors.name && <div className="error">{errors.description}</div>}
           </div>
           <button type="submit" className="submitBtn">Submit</button>
         </form>
